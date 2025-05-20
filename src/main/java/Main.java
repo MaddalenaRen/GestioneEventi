@@ -18,6 +18,6 @@ public class Main {
         }
 
         System.out.println(dao.getById(e1.getId()));
-        dao.rimuovi(e1.getId());
+        //dao.rimuovi(e1.getId());
     }
 }

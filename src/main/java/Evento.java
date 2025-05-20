@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table
+@Table (name="eventi")
 
 public class Evento {
     @Id
@@ -15,6 +15,7 @@ public class Evento {
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_evento")
     private TipoEvento tipoEvento;
+
 
     public Evento(){};
 

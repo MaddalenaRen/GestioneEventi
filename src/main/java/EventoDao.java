@@ -30,4 +30,7 @@ public class EventoDao {
             System.out.println("Evento:  " + Id + "non trovato");
         }
     }
+    public void clode(){
+        em.close();
+    }
 }
