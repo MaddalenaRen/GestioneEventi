@@ -1,12 +1,69 @@
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
 @Table
 
 public class Evento {
     @Id
+    private int Id;
+    @Column(length = 20,nullable = false)
+    private String titolo;
+    @Column(name="data_evento")
+    private LocalDate dataEvento;
+    @Enumerated(EnumType.STRING)
+    @Column(name="tipo_evento")
+    private TipoEvento tipoEvento;
 
+    public Evento(){};
 
+    public Evento(int ID, String titolo, LocalDate dataEvento, TipoEvento tipoEvento) {
+        this.Id = ID;
+        this.titolo = titolo;
+        this.dataEvento = dataEvento;
+        this.tipoEvento = tipoEvento;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setID(int ID) {
+        this.Id = ID;
+    }
+
+    public String getTitolo() {
+        return titolo;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public LocalDate getDataEvento() {
+        return dataEvento;
+    }
+
+    public void setDataEvento(LocalDate dataEvento) {
+        this.dataEvento = dataEvento;
+    }
+
+    public TipoEvento getTipoEvento() {
+        return tipoEvento;
+    }
+
+    public void setTipoEvento(TipoEvento tipoEvento) {
+        this.tipoEvento = tipoEvento;
+    }
+
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "Id=" + Id +
+                ", titolo='" + titolo + '\'' +
+                ", dataEvento=" + dataEvento +
+                ", tipoEvento=" + tipoEvento +
+                '}';
+    }
 }
