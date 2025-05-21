@@ -1,6 +1,11 @@
+package enteties;
+
+import enumeration.TipoEvento;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.ListResourceBundle;
 
 @Entity
 @Table (name="eventi")
@@ -15,6 +20,9 @@ public class Evento {
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_evento")
     private TipoEvento tipoEvento;
+
+    @OneToMany(mappedBy="evento")
+        private List<Partecipazione> partecipazioni;
 
 
     public Evento(){};
@@ -60,7 +68,7 @@ public class Evento {
 
     @Override
     public String toString() {
-        return "Evento{" +
+        return "enteties.Evento{" +
                 "Id=" + Id +
                 ", titolo='" + titolo + '\'' +
                 ", dataEvento=" + dataEvento +
