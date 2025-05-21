@@ -13,17 +13,15 @@ public class Partecipazione {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name="evento_id")
+    @JoinColumn(name="persona_id")
     private Persona persona;
     @ManyToOne
-    @JoinColumn(name="persona_id")
+    @JoinColumn(name="evento_id")
     private Evento evento;
     @Enumerated(EnumType.STRING)
     private Stato stato;
 
-    public Partecipazione(Persona persona, Evento evento, Stato stato) {
-        this.persona = persona;
-        this.evento = evento;
+    public Partecipazione(Stato stato) {
         this.stato = stato;
     }
 

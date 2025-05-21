@@ -21,23 +21,16 @@ public class Persona {
     @Enumerated(EnumType.STRING)
     private Sesso sesso;
 
-    @OneToMany (mappedBy = "partecipazione")
-    private List<Partecipazione> listaPartecipazioni;
+    @OneToMany (mappedBy = "persona")
+    private List<Partecipazione> partecipazioni;
 
 
-
-
-
-    public Persona(String nome, String cognome, String email, LocalDate dataNascita, Sesso sesso, List<Partecipazione> listaPartecipazioni) {
+    public Persona(String nome, String cognome, String email, LocalDate dataNascita, Sesso sesso) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.dataNascita = dataNascita;
         this.sesso = sesso;
-        listaPartecipazioni = listaPartecipazioni;
-    }
-
-    public Persona() {
     }
 
     public int getId() {
@@ -48,20 +41,20 @@ public class Persona {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getCognome() {
         return cognome;
     }
 
     public void setCognome(String cognome) {
         this.cognome = cognome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {
@@ -88,12 +81,12 @@ public class Persona {
         this.sesso = sesso;
     }
 
-    public List<Partecipazione> getListaPartecipazioni() {
-        return listaPartecipazioni;
+    public List<Partecipazione> getPartecipazioni() {
+        return partecipazioni;
     }
 
-    public void setListaPartecipazioni(List<Partecipazione> listaPartecipazioni) {
-        listaPartecipazioni = listaPartecipazioni;
+    public void setPartecipazioni(List<Partecipazione> partecipazioni) {
+        this.partecipazioni = partecipazioni;
     }
 
     @Override
@@ -105,7 +98,7 @@ public class Persona {
                 ", email='" + email + '\'' +
                 ", dataNascita=" + dataNascita +
                 ", sesso=" + sesso +
-                ", listaPartecipazioni=" + listaPartecipazioni +
+                ", partecipazioni=" + partecipazioni +
                 '}';
     }
 }

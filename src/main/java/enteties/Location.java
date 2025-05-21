@@ -16,10 +16,10 @@ public class Location {
     @JoinColumn(name="evento_id")
     private Evento evento;
 
-    public Location(String nome, String citta, Evento evento) {
+    public Location(String nome, String citta) {
         this.nome = nome;
         this.citta = citta;
-        this.evento = evento;
+
     }
 
     public Location() {

@@ -12,6 +12,7 @@ import java.util.ListResourceBundle;
 
 public class Evento {
     @Id
+    @GeneratedValue(strategy =GenerationType.IDENTITY)
     private int Id;
     @Column(length = 20,nullable = false)
     private String titolo;
@@ -27,8 +28,8 @@ public class Evento {
 
     public Evento(){};
 
-    public Evento(int ID, String titolo, LocalDate dataEvento, TipoEvento tipoEvento) {
-        this.Id = ID;
+    public Evento( String titolo, LocalDate dataEvento, TipoEvento tipoEvento) {
+
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.tipoEvento = tipoEvento;
@@ -38,8 +39,8 @@ public class Evento {
         return Id;
     }
 
-    public void setID(int ID) {
-        this.Id = ID;
+    public void setId(int id) {
+        Id = id;
     }
 
     public String getTitolo() {
@@ -66,13 +67,22 @@ public class Evento {
         this.tipoEvento = tipoEvento;
     }
 
+    public List<Partecipazione> getPartecipazioni() {
+        return partecipazioni;
+    }
+
+    public void setPartecipazioni(List<Partecipazione> partecipazioni) {
+        this.partecipazioni = partecipazioni;
+    }
+
     @Override
     public String toString() {
-        return "enteties.Evento{" +
+        return "Evento{" +
                 "Id=" + Id +
                 ", titolo='" + titolo + '\'' +
                 ", dataEvento=" + dataEvento +
                 ", tipoEvento=" + tipoEvento +
+                ", partecipazioni=" + partecipazioni +
                 '}';
     }
 }
