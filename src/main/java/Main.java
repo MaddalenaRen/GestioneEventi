@@ -25,22 +25,19 @@ public class Main {
 
 
         Evento e1 = new Evento("EVENTO-BENEFICENZA", LocalDate.of(2025, 6, 10), TipoEvento.PUBBLICO);
-        Evento e2 = new Evento( "Concerto", LocalDate.of(2025, 6, 20), TipoEvento.PUBBLICO);
-
+        Evento e2 = new Evento("Concerto", LocalDate.of(2025, 6, 20), TipoEvento.PUBBLICO);
         eventodao.salva(e1);
         eventodao.salva(e2);
 
+
         Location location1 = new Location("Villa", "Firenze");
+        location1.setEvento(e1);
         Location location2 = new Location("Villa2", "Roma");
+        location2.setEvento(e2);
+
 
         locatioDao.salva(location1);
         locatioDao.salva(location2);
-
-        location1.setEvento(e1);
-        location2.setEvento(e2);
-
-        eventodao.salva(e1);
-        eventodao.salva(e2);
 
         Persona p1= new Persona("Anna", "Verdi", "anna@gmail.com",LocalDate.of(2025, 7, 10), Sesso.F);
         Persona p2= new Persona("Mario", "Verdi", "anna@gmail.com",LocalDate.of(2025, 7, 10), Sesso.M);
