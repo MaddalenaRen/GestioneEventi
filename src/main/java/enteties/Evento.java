@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.ListResourceBundle;
 
 @Entity
-@Table (name="eventi")
+//@Table (name="eventi")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_evento_spec", discriminatorType = DiscriminatorType.STRING)
 
 public class Evento {
     @Id
