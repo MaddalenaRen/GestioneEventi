@@ -60,7 +60,7 @@ public class EventoDao {
     }
 
     public List<PartitaDiCalcio> getPartiteVinceInCasa() {
-        TypedQuery<PartitaDiCalcio> query = em.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.numeroGolSquadraDiCasa > p.numeroGolSquadraOspite", PartitaDiCalcio.class);
+        TypedQuery<PartitaDiCalcio> query = em.createNamedQuery("getPartiteVinceInCasa", PartitaDiCalcio.class);
         return query.getResultList();
     }
 
@@ -81,7 +81,7 @@ public class EventoDao {
     }
 
     public List<GaraDiAtletica> getGareDiAtleticaPerPartecipante(Persona partecipante){
-        TypedQuery<GaraDiAtletica> query= em.createQuery("SELECT g FROM GaraDiAtletica g WHERE :partecipante MEMBER OF g.atleti", GaraDiAtletica.class);
+        TypedQuery<GaraDiAtletica> query= em.createQuery("SELECT g FROM GaraDiAtletica g WHERE g.partecipante MEMBER OF g.atleti", GaraDiAtletica.class);
         query.setParameter("partecipante", partecipante);
         return query.getResultList();
 
